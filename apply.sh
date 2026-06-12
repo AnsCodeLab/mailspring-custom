@@ -9,7 +9,7 @@ if [ ! -d "$RESOURCES_BASE" ]; then
 fi
 
 # Find the active deploy hash directory
-RESOURCES=$(find "$RESOURCES_BASE/x86_64/stable" -maxdepth 2 -name "app.asar" 2>/dev/null | head -1 | xargs dirname)
+RESOURCES=$(find "$RESOURCES_BASE/x86_64/stable" -maxdepth 8 -name "app.asar" 2>/dev/null | head -1 | xargs dirname)
 if [ -z "$RESOURCES" ]; then
   echo "ERROR: Could not find app.asar under $RESOURCES_BASE"
   exit 1
