@@ -69,7 +69,7 @@ function activate() {
             role: 'Composer',
         });
         mailspring_exports_1.ComponentRegistry.register(compose_button_1.default, {
-            location: mailspring_exports_1.WorkspaceStore.Location.ThreadList.Toolbar,
+            location: mailspring_exports_1.WorkspaceStore.Location.MessageList.Toolbar,
         });
     }
     else if (AppEnv.isThreadWindow()) {
