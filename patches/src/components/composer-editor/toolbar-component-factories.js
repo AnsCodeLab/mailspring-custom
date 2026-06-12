@@ -269,16 +269,16 @@ function BuildFontSizeInput(config) {
             super(...arguments);
             this.state = { editing: false, inputValue: '' };
             this._savedMarks = [];
-            this._mouseDownValue = null;
+            this._mouseDownValue = undefined;
             this._onMouseDown = (e) => {
                 this._savedMarks = safeActiveMarks(this.props.value);
                 this._mouseDownValue = ptFromMarkValue(getActiveValueForMark(this.props.value, config.type));
                 e.stopPropagation();
             };
             this._onFocus = () => {
-                const current = this._mouseDownValue !== null ? this._mouseDownValue : ptFromMarkValue(getActiveValueForMark(this.props.value, config.type));
-                this._mouseDownValue = null;
-                this.setState({ editing: true, inputValue: current });
+                const current = this._mouseDownValue !== undefined ? this._mouseDownValue : ptFromMarkValue(getActiveValueForMark(this.props.value, config.type));
+                this._mouseDownValue = undefined;
+                this.setState({ editing: true, inputValue: current || config.default || '' });
             };
             this._onChange = (e) => {
                 this.setState({ inputValue: e.target.value });
@@ -311,7 +311,7 @@ function BuildFontSizeInput(config) {
         }
         render() {
             const { editing, inputValue } = this.state;
-            const displayVal = editing ? inputValue : ptFromMarkValue(getActiveValueForMark(this.props.value, config.type));
+            const displayVal = editing ? inputValue : (ptFromMarkValue(getActiveValueForMark(this.props.value, config.type)) || config.default || '');
             return react_1.default.createElement("div", {
                 className: this.props.className,
                 style: { display: 'inline-flex', alignItems: 'center', padding: '0 3px', cursor: 'default' },

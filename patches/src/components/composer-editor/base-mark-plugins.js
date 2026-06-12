@@ -244,6 +244,7 @@ const BaseMarkPlugin = {
         }),
         (0, toolbar_component_factories_1.BuildFontSizeInput)({
             type: 'size',
+            default: '11',
             iconClass: 'fa fa-text-height',
         }),
     ]),
