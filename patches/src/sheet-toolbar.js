@@ -166,7 +166,7 @@ class ToolbarMenuControl extends react_1.default.Component {
         if (!enabled) {
             return react_1.default.createElement("span", null);
         }
-        return (react_1.default.createElement("div", { className: "toolbar-menu-control", style: { order: -100 } },
+        return (react_1.default.createElement("div", { className: "toolbar-menu-control", style: { order: -200 } },
             react_1.default.createElement("button", { tabIndex: 0, className: "btn btn-toolbar", "aria-label": (0, mailspring_exports_1.localized)('Application menu'), onClick: this._onOpenMenu },
                 react_1.default.createElement(retina_img_1.RetinaImg, { name: "windows-menu-icon.png", mode: retina_img_1.RetinaImg.Mode.ContentIsMask, "aria-hidden": "true" }))));
     }
