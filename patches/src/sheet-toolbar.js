@@ -143,7 +143,7 @@ class ToolbarWindowControls extends react_1.default.Component {
         if (!enabled) {
             return react_1.default.createElement("span", null);
         }
-        return (react_1.default.createElement("div", { style: { order: 100 } },
+        return (react_1.default.createElement("div", { style: { order: 1000 } },
             react_1.default.createElement(roving_tab_index_toolbar_1.RovingTabIndexToolbar, { label: (0, mailspring_exports_1.localized)('Window Controls'), className: `toolbar-window-controls alt-${this.state.alt}` },
                 react_1.default.createElement("button", { tabIndex: -1, className: "close", "aria-label": (0, mailspring_exports_1.localized)('Close window'), onClick: () => AppEnv.close() }),
                 react_1.default.createElement("button", { tabIndex: -1, className: "minimize", "aria-label": (0, mailspring_exports_1.localized)('Minimize window'), onClick: () => AppEnv.minimize() }),
