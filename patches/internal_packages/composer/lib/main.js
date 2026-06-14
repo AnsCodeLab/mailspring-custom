@@ -10,6 +10,8 @@ const underscore_1 = __importDefault(require("underscore"));
 const react_1 = __importDefault(require("react"));
 const mailspring_exports_1 = require("mailspring-exports");
 const compose_button_1 = __importDefault(require("./compose-button"));
+const refresh_button_1 = __importDefault(require("./refresh-button"));
+const apply_rules_button_1 = __importDefault(require("./apply-rules-button"));
 const composer_view_1 = __importDefault(require("./composer-view"));
 const ComposerViewForDraftClientId = (0, mailspring_exports_1.InflatesDraftClientId)(composer_view_1.default);
 class ComposerWithWindowProps extends react_1.default.Component {
@@ -71,6 +73,12 @@ function activate() {
         mailspring_exports_1.ComponentRegistry.register(compose_button_1.default, {
             location: mailspring_exports_1.WorkspaceStore.Location.MessageList.Toolbar,
         });
+        mailspring_exports_1.ComponentRegistry.register(refresh_button_1.default, {
+            location: mailspring_exports_1.WorkspaceStore.Location.MessageList.Toolbar,
+        });
+        mailspring_exports_1.ComponentRegistry.register(apply_rules_button_1.default, {
+            location: mailspring_exports_1.WorkspaceStore.Location.MessageList.Toolbar,
+        });
     }
     else if (AppEnv.isThreadWindow()) {
         mailspring_exports_1.ComponentRegistry.register(ComposerViewForDraftClientId, {
@@ -95,6 +103,8 @@ function deactivate() {
     if (AppEnv.isMainWindow()) {
         mailspring_exports_1.ComponentRegistry.unregister(ComposerViewForDraftClientId);
         mailspring_exports_1.ComponentRegistry.unregister(compose_button_1.default);
+        mailspring_exports_1.ComponentRegistry.unregister(refresh_button_1.default);
+        mailspring_exports_1.ComponentRegistry.unregister(apply_rules_button_1.default);
     }
     else {
         mailspring_exports_1.ComponentRegistry.unregister(ComposerWithWindowProps);
